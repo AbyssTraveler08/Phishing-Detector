@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phishing Link Detector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f2f2f2;
+    }
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 300px;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+<h2>🔍 Phishing URL Detector</h2>
+<input type="text" id="urlInput" placeholder="Enter a URL here..." />
+<br>
+<button onclick="checkURL()">Check URL</button>
+
+<div id="result"></div>
+
+<script>
+  async function checkURL() {
+    const url = document.getElementById("urlInput").value;
+    const response = await fetch("/check", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ url: url })
+    });
+    const data = await response.json();
+    document.getElementById("result").textContent = JSON.stringify(data, null, 2);
+  }
+</script>
+
+</body>
+</html>

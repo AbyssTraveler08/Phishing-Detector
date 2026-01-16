@@ -12,5 +12,5 @@ This project is a **Phishing Link Detector** built using **Python (Flask)** and 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/Phishing-Detector.git
+   git clone https://github.com/AbyssTraveler08/Phishing-Detector.git
    cd Phishing-Detector
